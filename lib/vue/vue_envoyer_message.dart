@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../model/message.dart';
+import '../providers/list_message_provider.dart';
 
 class VueEnvoyerMessage extends StatelessWidget {
 
   const VueEnvoyerMessage({
     super.key,
-    required this.envoyerMessage
   });
-
-  final Function envoyerMessage;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,8 @@ class VueEnvoyerMessage extends StatelessWidget {
       children: [
         Expanded(child: TextField(controller: textControleur)),
         IconButton(
-          onPressed: () => envoyerMessage('Utilisateur 1', textControleur.text), 
+          onPressed: () => Provider.of<ListMessageProvider>(context, listen: false)
+                            .add(Message(alias: "Utilisateur1", message: textControleur.text)), 
           icon: const Icon(Icons.send))
       ],
     );
