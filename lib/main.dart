@@ -1,3 +1,4 @@
+import 'package:chatflutter/deps/dependance.dart';
 import 'package:chatflutter/providers/list_message_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -22,7 +23,7 @@ class MainApp extends StatelessWidget {
       // Utiliser un MultiProvider pour plus qu'un ChangeNotifier
       home: Scaffold(
         body: ChangeNotifierProvider(
-          create: (context) => ListMessageProvider(),
+          create: (context) => ListMessageProvider(Dependance()),
           child: const PagePrincipale()
         )
       )
